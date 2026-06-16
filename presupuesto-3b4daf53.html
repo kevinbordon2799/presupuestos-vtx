@@ -1,0 +1,576 @@
+<!DOCTYPE html><html lang="es" style=""><head><meta charset="UTF-8"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Generador de Presupuestos</title>
+
+    <!-- Tailwind -->
+    
+
+    <!-- Big.js -->
+    
+<style>
+@charset "utf-8";
+
+*, ::before, ::after { --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; }
+
+::backdrop { --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; }
+
+*, ::after, ::before { box-sizing: border-box; border-width: 0px; border-style: solid; border-color: rgb(229, 231, 235); }
+
+::after, ::before { --tw-content: ''; }
+
+:host, html { line-height: 1.5; text-size-adjust: 100%; tab-size: 4; font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; font-feature-settings: normal; font-variation-settings: normal; -webkit-tap-highlight-color: transparent; }
+
+body { margin: 0px; line-height: inherit; }
+
+hr { height: 0px; color: inherit; border-top-width: 1px; }
+
+abbr:where([title]) { text-decoration: underline dotted; }
+
+h1, h2, h3, h4, h5, h6 { font-size: inherit; font-weight: inherit; }
+
+a { color: inherit; text-decoration: inherit; }
+
+b, strong { font-weight: bolder; }
+
+code, kbd, pre, samp { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-feature-settings: normal; font-variation-settings: normal; font-size: 1em; }
+
+small { font-size: 80%; }
+
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+
+sub { bottom: -0.25em; }
+
+sup { top: -0.5em; }
+
+table { text-indent: 0px; border-color: inherit; border-collapse: collapse; }
+
+button, input, optgroup, select, textarea { font-family: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-size: 100%; font-weight: inherit; line-height: inherit; letter-spacing: inherit; color: inherit; margin: 0px; padding: 0px; }
+
+button, select { text-transform: none; }
+
+button, input:where([type="button"]), input:where([type="reset"]), input:where([type="submit"]) { appearance: button; background-color: transparent; background-image: none; }
+
+progress { vertical-align: baseline; }
+
+::-webkit-inner-spin-button, ::-webkit-outer-spin-button { height: auto; }
+
+[type="search"] { appearance: textfield; outline-offset: -2px; }
+
+::-webkit-search-decoration { appearance: none; }
+
+::-webkit-file-upload-button { appearance: button; font: inherit; }
+
+summary { display: list-item; }
+
+blockquote, dd, dl, figure, h1, h2, h3, h4, h5, h6, hr, p, pre { margin: 0px; }
+
+fieldset { margin: 0px; padding: 0px; }
+
+legend { padding: 0px; }
+
+menu, ol, ul { list-style: none; margin: 0px; padding: 0px; }
+
+dialog { padding: 0px; }
+
+textarea { resize: vertical; }
+
+input::placeholder, textarea::placeholder { opacity: 1; color: rgb(156, 163, 175); }
+
+[role="button"], button { cursor: pointer; }
+
+:disabled { cursor: default; }
+
+audio, canvas, embed, iframe, img, object, svg, video { display: block; vertical-align: middle; }
+
+img, video { max-width: 100%; height: auto; }
+
+[hidden]:where(:not([hidden="until-found"])) { display: none; }
+
+.mx-auto { margin-left: auto; margin-right: auto; }
+
+.mb-2 { margin-bottom: 0.5rem; }
+
+.mb-3 { margin-bottom: 0.75rem; }
+
+.mb-4 { margin-bottom: 1rem; }
+
+.mt-4 { margin-top: 1rem; }
+
+.mt-6 { margin-top: 1.5rem; }
+
+.flex { display: flex; }
+
+.grid { display: grid; }
+
+.hidden { display: none; }
+
+.h-40 { height: 10rem; }
+
+.h-full { height: 100%; }
+
+.w-full { width: 100%; }
+
+.max-w-\[400px\] { max-width: 400px; }
+
+.list-inside { list-style-position: inside; }
+
+.list-disc { list-style-type: disc; }
+
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0px, 1fr)); }
+
+.flex-col { flex-direction: column; }
+
+.justify-end { justify-content: flex-end; }
+
+.justify-between { justify-content: space-between; }
+
+.gap-4 { gap: 1rem; }
+
+.space-y-1 > :not([hidden]) ~ :not([hidden]) { --tw-space-y-reverse: 0; margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse))); margin-bottom: calc(0.25rem * var(--tw-space-y-reverse)); }
+
+.overflow-x-auto { overflow-x: auto; }
+
+.rounded { border-radius: 0.25rem; }
+
+.rounded-lg { border-radius: 0.5rem; }
+
+.border { border-width: 1px; }
+
+.border-2 { border-width: 2px; }
+
+.border-t { border-top-width: 1px; }
+
+.border-blue-200 { --tw-border-opacity: 1; border-color: rgb(191 219 254 / var(--tw-border-opacity, 1)); }
+
+.border-gray-300 { --tw-border-opacity: 1; border-color: rgb(209 213 219 / var(--tw-border-opacity, 1)); }
+
+.bg-blue-400 { --tw-bg-opacity: 1; background-color: rgb(96 165 250 / var(--tw-bg-opacity, 1)); }
+
+.bg-blue-50 { --tw-bg-opacity: 1; background-color: rgb(239 246 255 / var(--tw-bg-opacity, 1)); }
+
+.bg-blue-600 { --tw-bg-opacity: 1; background-color: rgb(37 99 235 / var(--tw-bg-opacity, 1)); }
+
+.bg-gray-100 { --tw-bg-opacity: 1; background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1)); }
+
+.bg-white { --tw-bg-opacity: 1; background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1)); }
+
+.bg-gray-50 { --tw-bg-opacity: 1; background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1)); }
+
+.p-3 { padding: 0.75rem; }
+
+.p-4 { padding: 1rem; }
+
+.p-6 { padding: 1.5rem; }
+
+.px-4 { padding-left: 1rem; padding-right: 1rem; }
+
+.py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+
+.pt-2 { padding-top: 0.5rem; }
+
+.text-center { text-align: center; }
+
+.font-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+
+.text-2xl { font-size: 1.5rem; line-height: 2rem; }
+
+.text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+
+.text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+
+.text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+
+.text-xs { font-size: 0.75rem; line-height: 1rem; }
+
+.font-bold { font-weight: 700; }
+
+.font-normal { font-weight: 400; }
+
+.font-semibold { font-weight: 600; }
+
+.font-medium { font-weight: 500; }
+
+.leading-\[1\.2em\] { line-height: 1.2em; }
+
+.text-blue-700 { --tw-text-opacity: 1; color: rgb(29 78 216 / var(--tw-text-opacity, 1)); }
+
+.text-gray-700 { --tw-text-opacity: 1; color: rgb(55 65 81 / var(--tw-text-opacity, 1)); }
+
+.text-white { --tw-text-opacity: 1; color: rgb(255 255 255 / var(--tw-text-opacity, 1)); }
+
+.shadow-sm { --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color); box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow); }
+
+.hover\:bg-blue-700:hover { --tw-bg-opacity: 1; background-color: rgb(29 78 216 / var(--tw-bg-opacity, 1)); }
+</style>
+</head>
+
+<body class="bg-gray-100 p-6" style="">
+
+    <div class="max-w-[400px] mx-auto bg-white p-6 border-2 border-gray-300">
+        <!-- BLOQUE A OCULTAR -->
+        <div id="preBudget" class="hidden">
+            <h1 class="text-2xl font-bold mb-4">🧾 Generador de Presupuestos</h1>
+
+            <!-- Ayuda JSON -->
+            <div class="mb-4 bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <h2 class="text-lg font-semibold mb-2 text-blue-700">
+                    📘 Formato de JSON admitido
+                </h2>
+
+                <p class="text-sm text-gray-700 mb-3">
+                    Array de productos con:
+                </p>
+
+                <ul class="list-disc list-inside text-sm text-gray-700 mb-3">
+                    <li><strong>cant</strong>: cantidad</li>
+                    <li><strong>name</strong>: nombre</li>
+                    <li><strong>unitPrice</strong>: precio unitario</li>
+                </ul>
+
+                <pre class="bg-white border rounded p-3 text-sm overflow-x-auto font-mono">[
+  {
+    "cant": 2,
+    "name": "Lamparita LED",
+    "unitPrice": 3500
+  },
+  {
+    "cant": 1,
+    "name": "Toma doble",
+    "unitPrice": 4200
+  }
+]
+                </pre>
+            </div>
+
+            <!-- Input -->
+            <textarea id="jsonInput" class="w-full h-40 p-3 border rounded font-mono text-sm" placeholder="Pegá el JSON acá..."></textarea>
+
+            <button id="calcBtn" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                Calcular presupuesto
+            </button>
+        </div>
+
+        <!-- BLOQUE PRESUPUESTO -->
+
+        <div id="budgetResult" class="flex flex-col h-full">
+            <h2 class="text-2xl font-bold text-center mb-4 text-white bg-blue-600 py-2 mx-auto w-full">Presupuesto</h2>
+
+            <div class="flex flex-col ">
+                <span class="font-bold text-xs">Fecha: <span class="font-normal" id="fechaActual">16 de junio de 2026</span></span>
+            </div>
+
+            <div id="cardsContainer" class="mt-6 grid grid-cols-1 gap-4"><div class="bg-gray-50 border p-4 shadow-sm">
+                    <h3 class="font-semibold text-lg mb-2">
+                        Metro caño corrugado 7/8 (blanco)
+                    </h3>
+
+                    <div class="text-sm text-gray-700 space-y-1">
+                        <div class="flex justify-between">
+                            <span>Cantidad</span>
+                            <span class="font-medium">100</span>
+                        </div>
+
+                        <div class="flex justify-between">
+                            <span>Precio unitario</span>
+                            <span>$&nbsp;396</span>
+                        </div>
+
+                        <div class="flex justify-between border-t pt-2 font-semibold">
+                            <span>Total</span>
+                            <span>$&nbsp;39.600</span>
+                        </div>
+                    </div>
+                </div><div class="bg-gray-50 border p-4 shadow-sm">
+                    <h3 class="font-semibold text-lg mb-2">
+                        Caja octogonal embutir (chapa)
+                    </h3>
+
+                    <div class="text-sm text-gray-700 space-y-1">
+                        <div class="flex justify-between">
+                            <span>Cantidad</span>
+                            <span class="font-medium">20</span>
+                        </div>
+
+                        <div class="flex justify-between">
+                            <span>Precio unitario</span>
+                            <span>$&nbsp;500</span>
+                        </div>
+
+                        <div class="flex justify-between border-t pt-2 font-semibold">
+                            <span>Total</span>
+                            <span>$&nbsp;10.000</span>
+                        </div>
+                    </div>
+                </div><div class="bg-gray-50 border p-4 shadow-sm">
+                    <h3 class="font-semibold text-lg mb-2">
+                        Caja rectangular embutir (chapa)
+                    </h3>
+
+                    <div class="text-sm text-gray-700 space-y-1">
+                        <div class="flex justify-between">
+                            <span>Cantidad</span>
+                            <span class="font-medium">12</span>
+                        </div>
+
+                        <div class="flex justify-between">
+                            <span>Precio unitario</span>
+                            <span>$&nbsp;500</span>
+                        </div>
+
+                        <div class="flex justify-between border-t pt-2 font-semibold">
+                            <span>Total</span>
+                            <span>$&nbsp;6.000</span>
+                        </div>
+                    </div>
+                </div><div class="bg-gray-50 border p-4 shadow-sm">
+                    <h3 class="font-semibold text-lg mb-2">
+                        Conector de chapa 7/8 para corrugado
+                    </h3>
+
+                    <div class="text-sm text-gray-700 space-y-1">
+                        <div class="flex justify-between">
+                            <span>Cantidad</span>
+                            <span class="font-medium">30</span>
+                        </div>
+
+                        <div class="flex justify-between">
+                            <span>Precio unitario</span>
+                            <span>$&nbsp;600</span>
+                        </div>
+
+                        <div class="flex justify-between border-t pt-2 font-semibold">
+                            <span>Total</span>
+                            <span>$&nbsp;18.000</span>
+                        </div>
+                    </div>
+                </div><div class="bg-gray-50 border p-4 shadow-sm">
+                    <h3 class="font-semibold text-lg mb-2">
+                        Térmica bipolar 40A (CHINT)
+                    </h3>
+
+                    <div class="text-sm text-gray-700 space-y-1">
+                        <div class="flex justify-between">
+                            <span>Cantidad</span>
+                            <span class="font-medium">1</span>
+                        </div>
+
+                        <div class="flex justify-between">
+                            <span>Precio unitario</span>
+                            <span>$&nbsp;12.000</span>
+                        </div>
+
+                        <div class="flex justify-between border-t pt-2 font-semibold">
+                            <span>Total</span>
+                            <span>$&nbsp;12.000</span>
+                        </div>
+                    </div>
+                </div><div class="bg-gray-50 border p-4 shadow-sm">
+                    <h3 class="font-semibold text-lg mb-2">
+                        Caja térmicas 8 bocas (4 térmicas bipoalres)
+                    </h3>
+
+                    <div class="text-sm text-gray-700 space-y-1">
+                        <div class="flex justify-between">
+                            <span>Cantidad</span>
+                            <span class="font-medium">1</span>
+                        </div>
+
+                        <div class="flex justify-between">
+                            <span>Precio unitario</span>
+                            <span>$&nbsp;3.000</span>
+                        </div>
+
+                        <div class="flex justify-between border-t pt-2 font-semibold">
+                            <span>Total</span>
+                            <span>$&nbsp;3.000</span>
+                        </div>
+                    </div>
+                </div><div class="bg-gray-50 border p-4 shadow-sm">
+                    <h3 class="font-semibold text-lg mb-2">
+                        Portalámpara 3 piezas (negro)
+                    </h3>
+
+                    <div class="text-sm text-gray-700 space-y-1">
+                        <div class="flex justify-between">
+                            <span>Cantidad</span>
+                            <span class="font-medium">12</span>
+                        </div>
+
+                        <div class="flex justify-between">
+                            <span>Precio unitario</span>
+                            <span>$&nbsp;1.000</span>
+                        </div>
+
+                        <div class="flex justify-between border-t pt-2 font-semibold">
+                            <span>Total</span>
+                            <span>$&nbsp;12.000</span>
+                        </div>
+                    </div>
+                </div><div class="bg-gray-50 border p-4 shadow-sm">
+                    <h3 class="font-semibold text-lg mb-2">
+                        Metro cable unipolar 4mm (normalizado)
+                    </h3>
+
+                    <div class="text-sm text-gray-700 space-y-1">
+                        <div class="flex justify-between">
+                            <span>Cantidad</span>
+                            <span class="font-medium">200</span>
+                        </div>
+
+                        <div class="flex justify-between">
+                            <span>Precio unitario</span>
+                            <span>$&nbsp;1.700</span>
+                        </div>
+
+                        <div class="flex justify-between border-t pt-2 font-semibold">
+                            <span>Total</span>
+                            <span>$&nbsp;340.000</span>
+                        </div>
+                    </div>
+                </div><div class="bg-gray-50 border p-4 shadow-sm">
+                    <h3 class="font-semibold text-lg mb-2">
+                        Metro cable unipolar 2,5mm (normalizado)
+                    </h3>
+
+                    <div class="text-sm text-gray-700 space-y-1">
+                        <div class="flex justify-between">
+                            <span>Cantidad</span>
+                            <span class="font-medium">100</span>
+                        </div>
+
+                        <div class="flex justify-between">
+                            <span>Precio unitario</span>
+                            <span>$&nbsp;1.000</span>
+                        </div>
+
+                        <div class="flex justify-between border-t pt-2 font-semibold">
+                            <span>Total</span>
+                            <span>$&nbsp;100.000</span>
+                        </div>
+                    </div>
+                </div><div class="bg-gray-50 border p-4 shadow-sm">
+                    <h3 class="font-semibold text-lg mb-2">
+                        Llave punto y toma embutir (Jeluz Platinum)
+                    </h3>
+
+                    <div class="text-sm text-gray-700 space-y-1">
+                        <div class="flex justify-between">
+                            <span>Cantidad</span>
+                            <span class="font-medium">5</span>
+                        </div>
+
+                        <div class="flex justify-between">
+                            <span>Precio unitario</span>
+                            <span>$&nbsp;3.000</span>
+                        </div>
+
+                        <div class="flex justify-between border-t pt-2 font-semibold">
+                            <span>Total</span>
+                            <span>$&nbsp;15.000</span>
+                        </div>
+                    </div>
+                </div><div class="bg-gray-50 border p-4 shadow-sm">
+                    <h3 class="font-semibold text-lg mb-2">
+                        Fotocélula 1200w 6A - MACROLED / KALOP
+                    </h3>
+
+                    <div class="text-sm text-gray-700 space-y-1">
+                        <div class="flex justify-between">
+                            <span>Cantidad</span>
+                            <span class="font-medium">4</span>
+                        </div>
+
+                        <div class="flex justify-between">
+                            <span>Precio unitario</span>
+                            <span>$&nbsp;9.800</span>
+                        </div>
+
+                        <div class="flex justify-between border-t pt-2 font-semibold">
+                            <span>Total</span>
+                            <span>$&nbsp;39.200</span>
+                        </div>
+                    </div>
+                </div><div class="bg-gray-50 border p-4 shadow-sm">
+                    <h3 class="font-semibold text-lg mb-2">
+                        Llave 2 puntos y 1 toma embutir (Jeluz Platinum)
+                    </h3>
+
+                    <div class="text-sm text-gray-700 space-y-1">
+                        <div class="flex justify-between">
+                            <span>Cantidad</span>
+                            <span class="font-medium">2</span>
+                        </div>
+
+                        <div class="flex justify-between">
+                            <span>Precio unitario</span>
+                            <span>$&nbsp;4.000</span>
+                        </div>
+
+                        <div class="flex justify-between border-t pt-2 font-semibold">
+                            <span>Total</span>
+                            <span>$&nbsp;8.000</span>
+                        </div>
+                    </div>
+                </div><div class="bg-gray-50 border p-4 shadow-sm">
+                    <h3 class="font-semibold text-lg mb-2">
+                        Llave toma doble embutir (Jeluz Platinum)
+                    </h3>
+
+                    <div class="text-sm text-gray-700 space-y-1">
+                        <div class="flex justify-between">
+                            <span>Cantidad</span>
+                            <span class="font-medium">7</span>
+                        </div>
+
+                        <div class="flex justify-between">
+                            <span>Precio unitario</span>
+                            <span>$&nbsp;3.000</span>
+                        </div>
+
+                        <div class="flex justify-between border-t pt-2 font-semibold">
+                            <span>Total</span>
+                            <span>$&nbsp;21.000</span>
+                        </div>
+                    </div>
+                </div><div class="bg-gray-50 border p-4 shadow-sm">
+                    <h3 class="font-semibold text-lg mb-2">
+                        Disyuntor diferencial bipolar 40A (Sica / Jeluz)
+                    </h3>
+
+                    <div class="text-sm text-gray-700 space-y-1">
+                        <div class="flex justify-between">
+                            <span>Cantidad</span>
+                            <span class="font-medium">1</span>
+                        </div>
+
+                        <div class="flex justify-between">
+                            <span>Precio unitario</span>
+                            <span>$&nbsp;34.000</span>
+                        </div>
+
+                        <div class="flex justify-between border-t pt-2 font-semibold">
+                            <span>Total</span>
+                            <span>$&nbsp;34.000</span>
+                        </div>
+                    </div>
+                </div></div>
+
+            <div class="flex mt-6">
+                <span class="text-xs leading-[1.2em]">Los precios indicados en este presupuesto corresponden a la
+                    <strong>fecha de emisión del mismo</strong> y están <strong>sujetos a cambios</strong> sin previo
+                    aviso.</span>
+            </div>
+
+            <div class="mt-6 text-xl font-bold flex justify-end">
+                <div class="bg-blue-400 bg-blue-600 px-4 py-2 text-white">
+                    Total: <span id="total">$&nbsp;657.800</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+
+</body></html>
