@@ -1,0 +1,692 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: file:///C:/KEVIN/WEB_DEV/json-utils/json-to-presupuesto-mobile.html
+Subject: Generador de Presupuestos
+Date: Tue, 16 Jun 2026 19:16:23 -0300
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--ncV7pWC8CO4X9OPh8aCqsST9CdAAq5o46xGwA51IJq----"
+
+
+------MultipartBoundary--ncV7pWC8CO4X9OPh8aCqsST9CdAAq5o46xGwA51IJq----
+Content-Type: text/html
+Content-ID: <frame-4905523822C37835F63D1398867FA42C@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///C:/KEVIN/WEB_DEV/json-utils/json-to-presupuesto-mobile.html
+
+<!DOCTYPE html><html lang=3D"es" style=3D""><head><meta http-equiv=3D"Conte=
+nt-Type" content=3D"text/html; charset=3DUTF-8"><link rel=3D"stylesheet" ty=
+pe=3D"text/css" href=3D"cid:css-f7eafa43-03e6-45f6-b314-ba82eb157aa9@mhtml.=
+blink" />
+   =20
+    <title>Generador de Presupuestos</title>
+
+    <!-- Tailwind -->
+   =20
+
+    <!-- Big.js -->
+   =20
+</head>
+
+<body class=3D"bg-gray-100 p-6" style=3D"">
+
+    <div class=3D"max-w-[400px] mx-auto bg-white p-6 border-2 border-gray-3=
+00">
+        <!-- BLOQUE A OCULTAR -->
+        <div id=3D"preBudget" class=3D"hidden">
+            <h1 class=3D"text-2xl font-bold mb-4">=F0=9F=A7=BE Generador de=
+ Presupuestos</h1>
+
+            <!-- Ayuda JSON -->
+            <div class=3D"mb-4 bg-blue-50 border border-blue-200 rounded-lg=
+ p-4">
+                <h2 class=3D"text-lg font-semibold mb-2 text-blue-700">
+                    =F0=9F=93=98 Formato de JSON admitido
+                </h2>
+
+                <p class=3D"text-sm text-gray-700 mb-3">
+                    Array de productos con:
+                </p>
+
+                <ul class=3D"list-disc list-inside text-sm text-gray-700 mb=
+-3">
+                    <li><strong>cant</strong>: cantidad</li>
+                    <li><strong>name</strong>: nombre</li>
+                    <li><strong>unitPrice</strong>: precio unitario</li>
+                </ul>
+
+                <pre class=3D"bg-white border rounded p-3 text-sm overflow-=
+x-auto font-mono">[
+  {
+    "cant": 2,
+    "name": "Lamparita LED",
+    "unitPrice": 3500
+  },
+  {
+    "cant": 1,
+    "name": "Toma doble",
+    "unitPrice": 4200
+  }
+]
+                </pre>
+            </div>
+
+            <!-- Input -->
+            <textarea id=3D"jsonInput" class=3D"w-full h-40 p-3 border roun=
+ded font-mono text-sm" placeholder=3D"Peg=C3=A1 el JSON ac=C3=A1..."></text=
+area>
+
+            <button id=3D"calcBtn" class=3D"mt-4 bg-blue-600 text-white px-=
+4 py-2 rounded hover:bg-blue-700">
+                Calcular presupuesto
+            </button>
+        </div>
+
+        <!-- BLOQUE PRESUPUESTO -->
+
+        <div id=3D"budgetResult" class=3D"flex flex-col h-full">
+            <h2 class=3D"text-2xl font-bold text-center mb-4 text-white bg-=
+blue-600 py-2 mx-auto w-full">Presupuesto</h2>
+
+            <div class=3D"flex flex-col ">
+                <span class=3D"font-bold text-xs">Fecha: <span class=3D"fon=
+t-normal" id=3D"fechaActual">16 de junio de 2026</span></span>
+            </div>
+
+            <div id=3D"cardsContainer" class=3D"mt-6 grid grid-cols-1 gap-4=
+"><div class=3D"bg-gray-50 border p-4 shadow-sm">
+                    <h3 class=3D"font-semibold text-lg mb-2">
+                        Metro ca=C3=B1o corrugado 7/8 (blanco)
+                    </h3>
+
+                    <div class=3D"text-sm text-gray-700 space-y-1">
+                        <div class=3D"flex justify-between">
+                            <span>Cantidad</span>
+                            <span class=3D"font-medium">100</span>
+                        </div>
+
+                        <div class=3D"flex justify-between">
+                            <span>Precio unitario</span>
+                            <span>$&nbsp;396</span>
+                        </div>
+
+                        <div class=3D"flex justify-between border-t pt-2 fo=
+nt-semibold">
+                            <span>Total</span>
+                            <span>$&nbsp;39.600</span>
+                        </div>
+                    </div>
+                </div><div class=3D"bg-gray-50 border p-4 shadow-sm">
+                    <h3 class=3D"font-semibold text-lg mb-2">
+                        Caja octogonal embutir (chapa)
+                    </h3>
+
+                    <div class=3D"text-sm text-gray-700 space-y-1">
+                        <div class=3D"flex justify-between">
+                            <span>Cantidad</span>
+                            <span class=3D"font-medium">20</span>
+                        </div>
+
+                        <div class=3D"flex justify-between">
+                            <span>Precio unitario</span>
+                            <span>$&nbsp;500</span>
+                        </div>
+
+                        <div class=3D"flex justify-between border-t pt-2 fo=
+nt-semibold">
+                            <span>Total</span>
+                            <span>$&nbsp;10.000</span>
+                        </div>
+                    </div>
+                </div><div class=3D"bg-gray-50 border p-4 shadow-sm">
+                    <h3 class=3D"font-semibold text-lg mb-2">
+                        Caja rectangular embutir (chapa)
+                    </h3>
+
+                    <div class=3D"text-sm text-gray-700 space-y-1">
+                        <div class=3D"flex justify-between">
+                            <span>Cantidad</span>
+                            <span class=3D"font-medium">12</span>
+                        </div>
+
+                        <div class=3D"flex justify-between">
+                            <span>Precio unitario</span>
+                            <span>$&nbsp;500</span>
+                        </div>
+
+                        <div class=3D"flex justify-between border-t pt-2 fo=
+nt-semibold">
+                            <span>Total</span>
+                            <span>$&nbsp;6.000</span>
+                        </div>
+                    </div>
+                </div><div class=3D"bg-gray-50 border p-4 shadow-sm">
+                    <h3 class=3D"font-semibold text-lg mb-2">
+                        Conector de chapa 7/8 para corrugado
+                    </h3>
+
+                    <div class=3D"text-sm text-gray-700 space-y-1">
+                        <div class=3D"flex justify-between">
+                            <span>Cantidad</span>
+                            <span class=3D"font-medium">30</span>
+                        </div>
+
+                        <div class=3D"flex justify-between">
+                            <span>Precio unitario</span>
+                            <span>$&nbsp;600</span>
+                        </div>
+
+                        <div class=3D"flex justify-between border-t pt-2 fo=
+nt-semibold">
+                            <span>Total</span>
+                            <span>$&nbsp;18.000</span>
+                        </div>
+                    </div>
+                </div><div class=3D"bg-gray-50 border p-4 shadow-sm">
+                    <h3 class=3D"font-semibold text-lg mb-2">
+                        T=C3=A9rmica bipolar 40A (CHINT)
+                    </h3>
+
+                    <div class=3D"text-sm text-gray-700 space-y-1">
+                        <div class=3D"flex justify-between">
+                            <span>Cantidad</span>
+                            <span class=3D"font-medium">1</span>
+                        </div>
+
+                        <div class=3D"flex justify-between">
+                            <span>Precio unitario</span>
+                            <span>$&nbsp;12.000</span>
+                        </div>
+
+                        <div class=3D"flex justify-between border-t pt-2 fo=
+nt-semibold">
+                            <span>Total</span>
+                            <span>$&nbsp;12.000</span>
+                        </div>
+                    </div>
+                </div><div class=3D"bg-gray-50 border p-4 shadow-sm">
+                    <h3 class=3D"font-semibold text-lg mb-2">
+                        Caja t=C3=A9rmicas 8 bocas (4 t=C3=A9rmicas bipoalr=
+es)
+                    </h3>
+
+                    <div class=3D"text-sm text-gray-700 space-y-1">
+                        <div class=3D"flex justify-between">
+                            <span>Cantidad</span>
+                            <span class=3D"font-medium">1</span>
+                        </div>
+
+                        <div class=3D"flex justify-between">
+                            <span>Precio unitario</span>
+                            <span>$&nbsp;3.000</span>
+                        </div>
+
+                        <div class=3D"flex justify-between border-t pt-2 fo=
+nt-semibold">
+                            <span>Total</span>
+                            <span>$&nbsp;3.000</span>
+                        </div>
+                    </div>
+                </div><div class=3D"bg-gray-50 border p-4 shadow-sm">
+                    <h3 class=3D"font-semibold text-lg mb-2">
+                        Portal=C3=A1mpara 3 piezas (negro)
+                    </h3>
+
+                    <div class=3D"text-sm text-gray-700 space-y-1">
+                        <div class=3D"flex justify-between">
+                            <span>Cantidad</span>
+                            <span class=3D"font-medium">12</span>
+                        </div>
+
+                        <div class=3D"flex justify-between">
+                            <span>Precio unitario</span>
+                            <span>$&nbsp;1.000</span>
+                        </div>
+
+                        <div class=3D"flex justify-between border-t pt-2 fo=
+nt-semibold">
+                            <span>Total</span>
+                            <span>$&nbsp;12.000</span>
+                        </div>
+                    </div>
+                </div><div class=3D"bg-gray-50 border p-4 shadow-sm">
+                    <h3 class=3D"font-semibold text-lg mb-2">
+                        Metro cable unipolar 4mm (normalizado)
+                    </h3>
+
+                    <div class=3D"text-sm text-gray-700 space-y-1">
+                        <div class=3D"flex justify-between">
+                            <span>Cantidad</span>
+                            <span class=3D"font-medium">200</span>
+                        </div>
+
+                        <div class=3D"flex justify-between">
+                            <span>Precio unitario</span>
+                            <span>$&nbsp;1.700</span>
+                        </div>
+
+                        <div class=3D"flex justify-between border-t pt-2 fo=
+nt-semibold">
+                            <span>Total</span>
+                            <span>$&nbsp;340.000</span>
+                        </div>
+                    </div>
+                </div><div class=3D"bg-gray-50 border p-4 shadow-sm">
+                    <h3 class=3D"font-semibold text-lg mb-2">
+                        Metro cable unipolar 2,5mm (normalizado)
+                    </h3>
+
+                    <div class=3D"text-sm text-gray-700 space-y-1">
+                        <div class=3D"flex justify-between">
+                            <span>Cantidad</span>
+                            <span class=3D"font-medium">100</span>
+                        </div>
+
+                        <div class=3D"flex justify-between">
+                            <span>Precio unitario</span>
+                            <span>$&nbsp;1.000</span>
+                        </div>
+
+                        <div class=3D"flex justify-between border-t pt-2 fo=
+nt-semibold">
+                            <span>Total</span>
+                            <span>$&nbsp;100.000</span>
+                        </div>
+                    </div>
+                </div><div class=3D"bg-gray-50 border p-4 shadow-sm">
+                    <h3 class=3D"font-semibold text-lg mb-2">
+                        Llave punto y toma embutir (Jeluz Platinum)
+                    </h3>
+
+                    <div class=3D"text-sm text-gray-700 space-y-1">
+                        <div class=3D"flex justify-between">
+                            <span>Cantidad</span>
+                            <span class=3D"font-medium">5</span>
+                        </div>
+
+                        <div class=3D"flex justify-between">
+                            <span>Precio unitario</span>
+                            <span>$&nbsp;3.000</span>
+                        </div>
+
+                        <div class=3D"flex justify-between border-t pt-2 fo=
+nt-semibold">
+                            <span>Total</span>
+                            <span>$&nbsp;15.000</span>
+                        </div>
+                    </div>
+                </div><div class=3D"bg-gray-50 border p-4 shadow-sm">
+                    <h3 class=3D"font-semibold text-lg mb-2">
+                        Fotoc=C3=A9lula 1200w 6A - MACROLED / KALOP
+                    </h3>
+
+                    <div class=3D"text-sm text-gray-700 space-y-1">
+                        <div class=3D"flex justify-between">
+                            <span>Cantidad</span>
+                            <span class=3D"font-medium">4</span>
+                        </div>
+
+                        <div class=3D"flex justify-between">
+                            <span>Precio unitario</span>
+                            <span>$&nbsp;9.800</span>
+                        </div>
+
+                        <div class=3D"flex justify-between border-t pt-2 fo=
+nt-semibold">
+                            <span>Total</span>
+                            <span>$&nbsp;39.200</span>
+                        </div>
+                    </div>
+                </div><div class=3D"bg-gray-50 border p-4 shadow-sm">
+                    <h3 class=3D"font-semibold text-lg mb-2">
+                        Llave 2 puntos y 1 toma embutir (Jeluz Platinum)
+                    </h3>
+
+                    <div class=3D"text-sm text-gray-700 space-y-1">
+                        <div class=3D"flex justify-between">
+                            <span>Cantidad</span>
+                            <span class=3D"font-medium">2</span>
+                        </div>
+
+                        <div class=3D"flex justify-between">
+                            <span>Precio unitario</span>
+                            <span>$&nbsp;4.000</span>
+                        </div>
+
+                        <div class=3D"flex justify-between border-t pt-2 fo=
+nt-semibold">
+                            <span>Total</span>
+                            <span>$&nbsp;8.000</span>
+                        </div>
+                    </div>
+                </div><div class=3D"bg-gray-50 border p-4 shadow-sm">
+                    <h3 class=3D"font-semibold text-lg mb-2">
+                        Llave toma doble embutir (Jeluz Platinum)
+                    </h3>
+
+                    <div class=3D"text-sm text-gray-700 space-y-1">
+                        <div class=3D"flex justify-between">
+                            <span>Cantidad</span>
+                            <span class=3D"font-medium">7</span>
+                        </div>
+
+                        <div class=3D"flex justify-between">
+                            <span>Precio unitario</span>
+                            <span>$&nbsp;3.000</span>
+                        </div>
+
+                        <div class=3D"flex justify-between border-t pt-2 fo=
+nt-semibold">
+                            <span>Total</span>
+                            <span>$&nbsp;21.000</span>
+                        </div>
+                    </div>
+                </div><div class=3D"bg-gray-50 border p-4 shadow-sm">
+                    <h3 class=3D"font-semibold text-lg mb-2">
+                        Disyuntor diferencial bipolar 40A (Sica / Jeluz)
+                    </h3>
+
+                    <div class=3D"text-sm text-gray-700 space-y-1">
+                        <div class=3D"flex justify-between">
+                            <span>Cantidad</span>
+                            <span class=3D"font-medium">1</span>
+                        </div>
+
+                        <div class=3D"flex justify-between">
+                            <span>Precio unitario</span>
+                            <span>$&nbsp;34.000</span>
+                        </div>
+
+                        <div class=3D"flex justify-between border-t pt-2 fo=
+nt-semibold">
+                            <span>Total</span>
+                            <span>$&nbsp;34.000</span>
+                        </div>
+                    </div>
+                </div></div>
+
+            <div class=3D"flex mt-6">
+                <span class=3D"text-xs leading-[1.2em]">Los precios indicad=
+os en este presupuesto corresponden a la
+                    <strong>fecha de emisi=C3=B3n del mismo</strong> y est=
+=C3=A1n <strong>sujetos a cambios</strong> sin previo
+                    aviso.</span>
+            </div>
+
+            <div class=3D"mt-6 text-xl font-bold flex justify-end">
+                <div class=3D"bg-blue-400 bg-blue-600 px-4 py-2 text-white"=
+>
+                    Total: <span id=3D"total">$&nbsp;657.800</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   =20
+
+
+
+</body></html>
+------MultipartBoundary--ncV7pWC8CO4X9OPh8aCqsST9CdAAq5o46xGwA51IJq----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-f7eafa43-03e6-45f6-b314-ba82eb157aa9@mhtml.blink
+
+@charset "utf-8";
+
+*, ::before, ::after { --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; =
+--tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; -=
+-tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: =
+; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-=
+from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ;=
+ --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-s=
+pacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-widt=
+h: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5=
+); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-sh=
+adow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightne=
+ss: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; =
+--tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --=
+tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale=
+: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opaci=
+ty: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ;=
+ --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; }
+
+::backdrop { --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-trans=
+late-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y=
+: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pin=
+ch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-posit=
+ion: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordi=
+nal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; =
+--tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --=
+tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ri=
+ng-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 =
+#0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw=
+-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-satur=
+ate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdro=
+p-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-b=
+ackdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw=
+-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-cont=
+ain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; }
+
+*, ::after, ::before { box-sizing: border-box; border-width: 0px; border-st=
+yle: solid; border-color: rgb(229, 231, 235); }
+
+::after, ::before { --tw-content: ''; }
+
+:host, html { line-height: 1.5; text-size-adjust: 100%; tab-size: 4; font-f=
+amily: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI=
+ Emoji", "Segoe UI Symbol", "Noto Color Emoji"; font-feature-settings: norm=
+al; font-variation-settings: normal; -webkit-tap-highlight-color: transpare=
+nt; }
+
+body { margin: 0px; line-height: inherit; }
+
+hr { height: 0px; color: inherit; border-top-width: 1px; }
+
+abbr:where([title]) { text-decoration: underline dotted; }
+
+h1, h2, h3, h4, h5, h6 { font-size: inherit; font-weight: inherit; }
+
+a { color: inherit; text-decoration: inherit; }
+
+b, strong { font-weight: bolder; }
+
+code, kbd, pre, samp { font-family: ui-monospace, SFMono-Regular, Menlo, Mo=
+naco, Consolas, "Liberation Mono", "Courier New", monospace; font-feature-s=
+ettings: normal; font-variation-settings: normal; font-size: 1em; }
+
+small { font-size: 80%; }
+
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-ali=
+gn: baseline; }
+
+sub { bottom: -0.25em; }
+
+sup { top: -0.5em; }
+
+table { text-indent: 0px; border-color: inherit; border-collapse: collapse;=
+ }
+
+button, input, optgroup, select, textarea { font-family: inherit; font-feat=
+ure-settings: inherit; font-variation-settings: inherit; font-size: 100%; f=
+ont-weight: inherit; line-height: inherit; letter-spacing: inherit; color: =
+inherit; margin: 0px; padding: 0px; }
+
+button, select { text-transform: none; }
+
+button, input:where([type=3D"button"]), input:where([type=3D"reset"]), inpu=
+t:where([type=3D"submit"]) { appearance: button; background-color: transpar=
+ent; background-image: none; }
+
+progress { vertical-align: baseline; }
+
+::-webkit-inner-spin-button, ::-webkit-outer-spin-button { height: auto; }
+
+[type=3D"search"] { appearance: textfield; outline-offset: -2px; }
+
+::-webkit-search-decoration { appearance: none; }
+
+::-webkit-file-upload-button { appearance: button; font: inherit; }
+
+summary { display: list-item; }
+
+blockquote, dd, dl, figure, h1, h2, h3, h4, h5, h6, hr, p, pre { margin: 0p=
+x; }
+
+fieldset { margin: 0px; padding: 0px; }
+
+legend { padding: 0px; }
+
+menu, ol, ul { list-style: none; margin: 0px; padding: 0px; }
+
+dialog { padding: 0px; }
+
+textarea { resize: vertical; }
+
+input::placeholder, textarea::placeholder { opacity: 1; color: rgb(156, 163=
+, 175); }
+
+[role=3D"button"], button { cursor: pointer; }
+
+:disabled { cursor: default; }
+
+audio, canvas, embed, iframe, img, object, svg, video { display: block; ver=
+tical-align: middle; }
+
+img, video { max-width: 100%; height: auto; }
+
+[hidden]:where(:not([hidden=3D"until-found"])) { display: none; }
+
+.mx-auto { margin-left: auto; margin-right: auto; }
+
+.mb-2 { margin-bottom: 0.5rem; }
+
+.mb-3 { margin-bottom: 0.75rem; }
+
+.mb-4 { margin-bottom: 1rem; }
+
+.mt-4 { margin-top: 1rem; }
+
+.mt-6 { margin-top: 1.5rem; }
+
+.flex { display: flex; }
+
+.grid { display: grid; }
+
+.hidden { display: none; }
+
+.h-40 { height: 10rem; }
+
+.h-full { height: 100%; }
+
+.w-full { width: 100%; }
+
+.max-w-\[400px\] { max-width: 400px; }
+
+.list-inside { list-style-position: inside; }
+
+.list-disc { list-style-type: disc; }
+
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0px, 1fr)); }
+
+.flex-col { flex-direction: column; }
+
+.justify-end { justify-content: flex-end; }
+
+.justify-between { justify-content: space-between; }
+
+.gap-4 { gap: 1rem; }
+
+.space-y-1 > :not([hidden]) ~ :not([hidden]) { --tw-space-y-reverse: 0; mar=
+gin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse))); margin-bottom=
+: calc(0.25rem * var(--tw-space-y-reverse)); }
+
+.overflow-x-auto { overflow-x: auto; }
+
+.rounded { border-radius: 0.25rem; }
+
+.rounded-lg { border-radius: 0.5rem; }
+
+.border { border-width: 1px; }
+
+.border-2 { border-width: 2px; }
+
+.border-t { border-top-width: 1px; }
+
+.border-blue-200 { --tw-border-opacity: 1; border-color: rgb(191 219 254 / =
+var(--tw-border-opacity, 1)); }
+
+.border-gray-300 { --tw-border-opacity: 1; border-color: rgb(209 213 219 / =
+var(--tw-border-opacity, 1)); }
+
+.bg-blue-400 { --tw-bg-opacity: 1; background-color: rgb(96 165 250 / var(-=
+-tw-bg-opacity, 1)); }
+
+.bg-blue-50 { --tw-bg-opacity: 1; background-color: rgb(239 246 255 / var(-=
+-tw-bg-opacity, 1)); }
+
+.bg-blue-600 { --tw-bg-opacity: 1; background-color: rgb(37 99 235 / var(--=
+tw-bg-opacity, 1)); }
+
+.bg-gray-100 { --tw-bg-opacity: 1; background-color: rgb(243 244 246 / var(=
+--tw-bg-opacity, 1)); }
+
+.bg-white { --tw-bg-opacity: 1; background-color: rgb(255 255 255 / var(--t=
+w-bg-opacity, 1)); }
+
+.bg-gray-50 { --tw-bg-opacity: 1; background-color: rgb(249 250 251 / var(-=
+-tw-bg-opacity, 1)); }
+
+.p-3 { padding: 0.75rem; }
+
+.p-4 { padding: 1rem; }
+
+.p-6 { padding: 1.5rem; }
+
+.px-4 { padding-left: 1rem; padding-right: 1rem; }
+
+.py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+
+.pt-2 { padding-top: 0.5rem; }
+
+.text-center { text-align: center; }
+
+.font-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Cons=
+olas, "Liberation Mono", "Courier New", monospace; }
+
+.text-2xl { font-size: 1.5rem; line-height: 2rem; }
+
+.text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+
+.text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+
+.text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+
+.text-xs { font-size: 0.75rem; line-height: 1rem; }
+
+.font-bold { font-weight: 700; }
+
+.font-normal { font-weight: 400; }
+
+.font-semibold { font-weight: 600; }
+
+.font-medium { font-weight: 500; }
+
+.leading-\[1\.2em\] { line-height: 1.2em; }
+
+.text-blue-700 { --tw-text-opacity: 1; color: rgb(29 78 216 / var(--tw-text=
+-opacity, 1)); }
+
+.text-gray-700 { --tw-text-opacity: 1; color: rgb(55 65 81 / var(--tw-text-=
+opacity, 1)); }
+
+.text-white { --tw-text-opacity: 1; color: rgb(255 255 255 / var(--tw-text-=
+opacity, 1)); }
+
+.shadow-sm { --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); --tw-shadow-colore=
+d: 0 1px 2px 0 var(--tw-shadow-color); box-shadow: var(--tw-ring-offset-sha=
+dow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow); }
+
+.hover\:bg-blue-700:hover { --tw-bg-opacity: 1; background-color: rgb(29 78=
+ 216 / var(--tw-bg-opacity, 1)); }
+------MultipartBoundary--ncV7pWC8CO4X9OPh8aCqsST9CdAAq5o46xGwA51IJq------
