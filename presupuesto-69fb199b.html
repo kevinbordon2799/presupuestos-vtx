@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Presupuestos</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Big.js -->
+    <script src="https://cdn.jsdelivr.net/npm/big.js@6.2.1/big.min.js"></script>
+
+    <script>
+        // Productos del presupuesto
+        const products = [
+            {
+                "cant": 1,
+                "name": "Caja para térmicas (24 módulos) de embutir",
+                "unitPrice": 35000
+            },
+            {
+                "cant": 25,
+                "name": "Caja rectangular embutir (PVC)",
+                "unitPrice": 400
+            },
+            {
+                "cant": 10,
+                "name": "Caja octogonal embutir (PVC)",
+                "unitPrice": 400
+            },
+            {
+                "cant": 50,
+                "name": "Conectores 3/4 (PVC)",
+                "unitPrice": 300
+            },
+            {
+                "cant": 20,
+                "name": "Curvas 3/4 (PVC)",
+                "unitPrice": 500
+            },
+            {
+                "cant": 15,
+                "name": "Unión 3/4 (PVC)",
+                "unitPrice": 300
+            },
+            {
+                "cant": 20,
+                "name": "Caño 3 metros 3/4 (PVC)",
+                "unitPrice": 2800
+            },
+            {
+                "cant": 1,
+                "name": "Térmica bipolar (63 A) (Jeluz)",
+                "unitPrice": 11000
+            },
+            {
+                "cant": 1,
+                "name": "Interruptor diferencial bipolar (63 A) Jeluz",
+                "unitPrice": 34000
+            },
+            {
+                "cant": 3,
+                "name": "Térmica bipolar (25 A) Jeluz",
+                "unitPrice": 9000
+            },
+            {
+                "cant": 2,
+                "name": "Térmica bipolar (32 A) Jeluz",
+                "unitPrice": 9000
+            },
+            {
+                "cant": 1,
+                "name": "Térmica bipolar (15 A /16 A) Jeluz",
+                "unitPrice": 9000
+            },
+            {
+                "cant": 100,
+                "name": "Metro cable unipolar 2,5mm (marrón)",
+                "unitPrice": 1000
+            },
+            {
+                "cant": 100,
+                "name": "Metro cable unipolar 2,5mm (celeste)",
+                "unitPrice": 1000
+            },
+            {
+                "cant": 60,
+                "name": "Metro cable unipolar 1,5mm (marrón)",
+                "unitPrice": 700
+            },
+            {
+                "cant": 50,
+                "name": "Metro cable unipolar 4mm (marrón)",
+                "unitPrice": 1700
+            },
+            {
+                "cant": 50,
+                "name": "Metro cable unipolar 4mm (celeste)",
+                "unitPrice": 1700
+            },
+            {
+                "cant": 3,
+                "name": "Cinta aisladora 20 metros (TACSA)",
+                "unitPrice": 2000
+            },
+            {
+                "cant": 20,
+                "name": "Bastidor + tapa (Jeluz Platinum)",
+                "unitPrice": 1500
+            },
+            {
+                "cant": 8,
+                "name": "Módulo punto (Jeluz Platinum)",
+                "unitPrice": 1000
+            },
+            {
+                "cant": 20,
+                "name": "Módulo toma (Jeluz Platinum)",
+                "unitPrice": 1000
+            },
+            {
+                "cant": 15,
+                "name": "Módulo ciego (Jeluz Platinum)",
+                "unitPrice": 100
+            },
+            {
+                "cant": 7,
+                "name": "Portalámparas 3 piezas (negro)",
+                "unitPrice": 1000
+            },
+            {
+                "cant": 7,
+                "name": "Lámpara LED 9w",
+                "unitPrice": 1400
+            },
+            {
+                "cant": 1,
+                "name": "Extractor de aire 150mm 6 pulgadas",
+                "unitPrice": 29900
+            },
+            {
+                "cant": 1,
+                "name": "Pulsador Temporizador Digital Luminoso 220V 2000W",
+                "unitPrice": 39000
+            },
+            {
+                "cant": 6,
+                "name": "Metro cable preensamblado x10mm",
+                "unitPrice": 9600
+            },
+            {
+                "cant": 1,
+                "name": "Térmica bipolar (63 A) (Jeluz)",
+                "unitPrice": 11000
+            },
+            {
+                "cant": 2,
+                "name": "Morseto aislado PKD-14 con portafusible",
+                "unitPrice": 10800
+            },
+            {
+                "cant": 10,
+                "name": "Metro cable subterráneo 2 x 10 mm",
+                "unitPrice": 10100
+            }
+        ]
+    </script>
+</head>
+
+<body class="bg-gray-100 p-6">
+
+    <div class="max-w-[400px] mx-auto bg-white p-6 border-2 border-gray-300">
+
+        <!-- PRESUPUESTO -->
+
+        <div id="budgetResult" class="flex flex-col h-full">
+            <h2 class="text-2xl font-bold text-center mb-4 text-white bg-blue-600 py-2 w-full">
+                Presupuesto
+            </h2>
+
+            <div class="flex flex-col">
+                <span class="font-bold text-xs">
+                    Fecha:
+                    <span class="font-normal" id="fechaActual"></span>
+                </span>
+            </div>
+
+            <div id="cardsContainer" class="mt-6 grid grid-cols-1 gap-4"></div>
+
+            <div class="flex mt-6">
+                <span class="text-xs leading-[1.2em]">
+                    Los precios indicados en este presupuesto corresponden a la
+                    <strong>fecha de emisión del mismo</strong> y están
+                    <strong>sujetos a cambios</strong> sin previo aviso.
+                </span>
+            </div>
+
+            <div class="mt-6 text-xl font-bold flex justify-end">
+                <div class="bg-blue-600 px-4 py-2 text-white">
+                    Total: <span id="total">$0</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Fecha actual
+        const $currentData = document.getElementById("fechaActual");
+
+        $currentData.textContent = new Date().toLocaleString("es-AR", {
+            day: "2-digit",
+            month: "long",
+            year: "numeric"
+        });
+
+        // Formateador de moneda
+        const formatARS = (value) =>
+            new Intl.NumberFormat("es-AR", {
+                style: "currency",
+                currency: "ARS",
+                maximumFractionDigits: 0
+            }).format(value);
+
+        // Renderizado del presupuesto
+        function renderBudget(data) {
+            const container = document.getElementById("cardsContainer");
+            const totalEl = document.getElementById("total");
+
+            container.innerHTML = "";
+
+            let total = Big(0);
+
+            data.forEach((item) => {
+                if (
+                    item.cant == null ||
+                    item.unitPrice == null ||
+                    !item.name
+                ) return;
+
+                const cant = Big(item.cant);
+                const unit = Big(item.unitPrice);
+                const subtotal = cant.times(unit);
+
+                total = total.plus(subtotal);
+
+                const card = document.createElement("div");
+                card.className = "bg-gray-50 border p-4 shadow-sm";
+
+                card.innerHTML = `
+                    <h3 class="font-semibold text-lg mb-2">
+                        ${item.name}
+                    </h3>
+
+                    <div class="text-sm text-gray-700 space-y-1">
+                        <div class="flex justify-between">
+                            <span>Cantidad</span>
+                            <span class="font-medium">${item.cant}</span>
+                        </div>
+
+                        <div class="flex justify-between">
+                            <span>Precio unitario</span>
+                            <span>${formatARS(unit.toNumber())}</span>
+                        </div>
+
+                        <div class="flex justify-between border-t pt-2 font-semibold">
+                            <span>Total</span>
+                            <span>${formatARS(subtotal.toNumber())}</span>
+                        </div>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+
+            totalEl.textContent = formatARS(total.toNumber());
+        }
+
+        // Generar presupuesto automáticamente
+        renderBudget(products);
+    </script>
+
+</body>
+
+</html>
